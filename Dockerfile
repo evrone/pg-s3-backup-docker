@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:edge
 LABEL maintainer="Antiarchitect <voronkovaa@gmail.com>"
 
 ENV AWS_ACCESS_KEY_ID=key
