@@ -14,4 +14,4 @@ RUN apk add --no-cache \
 RUN pip install --upgrade pip
 RUN pip --no-cache-dir install awscli
 
-CMD ["/bin/sh", "-c", "pg_dump --clean --no-owner ${DATABASE_URL} | gzip | aws s3 cp - s3://${BUCKET_NAME}/${BUCKET_KEY_PREFIX}_$(date -Iseconds --utc).sql.gz"]
+CMD ["/bin/sh", "-c", "pg_dump --no-owner -n public ${DATABASE_URL} | gzip | aws s3 cp - s3://${BUCKET_NAME}/${BUCKET_KEY_PREFIX}_$(date -Iseconds --utc).sql.gz"]
